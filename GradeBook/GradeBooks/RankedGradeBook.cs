@@ -31,6 +31,26 @@ namespace GradeBook.GradeBooks
             }
         }
 
+        public override void CalculateStatistics()
+        {
+            if (Students.Count < MIN_NUMBER_OF_STUDENTS)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
+            base.CalculateStatistics();
+        }
+
+        public override void CalculateStudentStatistics(string name)
+        {
+            if (Students.Count < MIN_NUMBER_OF_STUDENTS)
+            {
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
+            base.CalculateStudentStatistics(name);
+        }
+
         private int GetGradeRank(double grade)
         {
             int countHigherGrades = 0;
